@@ -1,11 +1,10 @@
 <template>
   <h3 class="time">{{ time }}</h3>
-  {{ tahun }} {{ bulan }} {{ tgl }} 
+  {{date}}, {{ tgl }} {{ bulan }} {{ tahun }} H
 </template>
 
 <script>
 import axios from 'axios';
-import persianJs from 'persianjs'
 export default {
   name: "Jam",
   data() {
@@ -21,15 +20,15 @@ export default {
     updateTime() {
         setInterval(() => {
             var cd = new Date();
-            // var week = [
-            //   "Minggu",
-            //   "Senin",
-            //   "Selasa",
-            //   "Rabu",
-            //   "Kamis",
-            //   "Jum'at",
-            //   "Sabtu",
-            // ];
+            var week = [
+              "Minggu",
+              "Senin",
+              "Selasa",
+              "Rabu",
+              "Kamis",
+              "Jum'at",
+              "Sabtu",
+            ];
             // var month = [
             //   "Januari",
             //   "Februari",
@@ -51,8 +50,8 @@ export default {
               this.zeroPadding(cd.getMinutes(), 2) +
               ":" +
               this.zeroPadding(cd.getSeconds(), 2);
-            // this.date =
-            //   week[cd.getDay()] +
+            this.date =
+              week[cd.getDay()];
             //   ", " +
             //   this.zeroPadding(cd.getDate(), 2) +
             //   " " +
@@ -71,12 +70,13 @@ export default {
     },
   },
   created() {
+    var month = ['Muharram', 'Safar', 'Rabiul Awal', 'Rabiul Akhir', 'Jumadil Awal', 'Jumadil AKhir', 'Rajab', "Sya'ban", 'Ramadhan', 'Syawal', 'Dzulqaidah', 'Dzulhijjah' ];
           this.updateTime();
-          axios.get(' http://api.aladhan.com/v1/gToH')
+          axios.get(' https://api.aladhan.com/v1/gToH')
           .then((response) => {
-            this.tgl = persianJs(response.data.data.hijri.day).englishNumber();
-            this.bulan = response.data.data.hijri.month.ar;
-            this.tahun = persianJs(response.data.data.hijri.year).englishNumber();
+            this.tgl = response.data.data.hijri.day;
+            this.bulan = month[response.data.data.hijri.month.number-1];
+            this.tahun = response.data.data.hijri.year;
           })
       
   }

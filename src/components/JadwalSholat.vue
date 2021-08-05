@@ -1,8 +1,5 @@
 <template>
-<div v-for="item in jadwal" :key="item.id" class="row ">
-    <p class="text-start">{{}}</p>
-</div>
-  <div v-for="item in jadwal" :key="item.id" class="row ">
+  <div v-for="item in jadwal" :key="item.id" class="row m-0 edo-rounded  p-1 bg-white font-kecil">
       <div class="col">
           subuh<br>{{item.times.Fajr}}
       </div>
@@ -54,8 +51,7 @@ export default {
               "https://api.pray.zone/v2/times/today.json?longitude="+this.long+"&latitude="+this.lat
             )
             .then((response) => {
-               this.jadwal=response.data.results.datetime,
-               this.perhitungan=response.data.results.settings.juristic
+               this.jadwal=response.data.results.datetime
             });
       },
       (err) => {
@@ -71,4 +67,7 @@ export default {
 </script>
 
 <style>
+.font-kecil {
+  font-size: 14px;
+}
 </style>
