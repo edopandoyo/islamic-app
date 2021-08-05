@@ -80,12 +80,7 @@ ul {
 li {
   margin-bottom: 1rem;
 }
-.arab {
-  font-size: 34px;
-  font-family: "Cairo", sans-serif;
-  font-family: "Lateef", cursive;
-  color: green;
-}
+
 .font-italic {
   font-style: italic;
 }

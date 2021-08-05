@@ -118,4 +118,10 @@ a {
   text-decoration: none;
   color:inherit;
 }
+.arab {
+  font-size: 24px;
+  font-family: 'Amiri', serif;
+  color: green;
+  line-height: 200%;
+}
 </style>

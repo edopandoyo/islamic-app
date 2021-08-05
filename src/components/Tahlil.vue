@@ -56,11 +56,7 @@ ul {
 li {
   margin-bottom: 1rem;
 }
-.arab {
-  font-size: 24px;
-  font-family: 'Amiri', serif;
-  color: green;
-}
+
 .font-italic {
   font-style: italic;
 }
