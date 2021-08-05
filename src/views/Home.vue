@@ -1,8 +1,14 @@
 <template>
   <div v-if="isMobile()" class="main">
     <div class="position-relative">
+      <Navbar v-bind:judul="judul" />
       <div class="position-absolute text-white text-start p-3">
-        <Jam></Jam>
+        <Suspense>
+          <template #default>
+            <Jam></Jam>
+          </template>
+          <template #fallback> Loading... </template>
+        </Suspense>
       </div>
       <div class="position-absolute bottom-0 mb-min p-2 w-100">
         <JadwalSholat> </JadwalSholat>
@@ -23,16 +29,16 @@
           Hadits
         </div>
       </div>
-      <div class="col p-2">
-        <div class="edo-bg edo-rounded p-2">
-          <img src="assets/zikir.png" class="w-100" />
-          Dzikir
+        <div class="col p-2">
+      <router-link to="/tahlil">
+          <div class="edo-bg edo-rounded p-2">
+            <img src="assets/zikir.png" class="w-100" />
+            Tahlil
+          </div>
+      </router-link>
         </div>
-      </div>
 
-      <DoaHarianRand class="text-black mt-3">
-        
-      </DoaHarianRand>
+      <DoaHarianRand class="text-black mt-3"> </DoaHarianRand>
     </div>
   </div>
   <div v-else class="d-flex justify-content-center align-items-center desktop">
@@ -43,6 +49,7 @@
 <script>
 import DoaHarianRand from "@/components/DoaHarianRand.vue";
 import JadwalSholat from "@/components/JadwalSholat.vue";
+import Navbar from "@/components/Navbar.vue";
 import Jam from "@/components/Jam.vue";
 // @ is an alias to /src
 export default {
@@ -51,10 +58,15 @@ export default {
     DoaHarianRand,
     Jam,
     JadwalSholat,
+    Navbar,
+  },
+  data() {
+    return {
+      judul: "Aplikasi Islami",
+    };
   },
   mounted() {
-    document.title = "Doa Harian | masedo";
-    
+    document.title = "Aplikasi Islami | masedo";
   },
   methods: {
     isMobile() {
@@ -101,5 +113,9 @@ export default {
 }
 .desktop {
   height: 100vh;
+}
+a {
+  text-decoration: none;
+  color:inherit;
 }
 </style>

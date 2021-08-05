@@ -19,7 +19,7 @@
         aria-expanded="false"
         aria-controls="collapseExample"
       >
-        <h4 class="mb-0 text-start mb-2 text-start">{{ item.title }}</h4>
+        <h5 class="mb-0 text-start mb-2 text-start">{{ item.title }}</h5>
       </div>
       <div class="collapse" :id="'tab' + index">
         <div class="p-2 border edo-rounded mb-2">

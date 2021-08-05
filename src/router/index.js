@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import Doa from '../views/DoaHarian.vue'
+import Home from '../views/Home'
+import Doa from '../views/DoaHarian'
+import Tahlil from '@/views/Tahlil'
 // import About from '../views/About.vue'
 
 const routes = [
@@ -21,6 +22,11 @@ const routes = [
     path: '/doa-harian',
     name: 'Doa Harian',
     component: Doa
+  },
+  {
+    path: '/tahlil',
+    name: 'Tahlil',
+    component: Tahlil
   }
 ]
 

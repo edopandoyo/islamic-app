@@ -1,11 +1,18 @@
 <template>
+<div v-if="loading">
+  loading....
+</div>
+<div v-else>
   <h3 class="time">{{ time }}</h3>
   {{date}}, {{ tgl }} {{ bulan }} {{ tahun }} H
+</div>
 </template>
 
 <script>
 import axios from 'axios';
 export default {
+  
+
   name: "Jam",
   data() {
       return {
@@ -13,7 +20,8 @@ export default {
           date: null,
           tgl: null,
           bulan: null,
-          tahun: null
+          tahun: null,
+          loading: true,
       }
   },
   methods: {
@@ -29,21 +37,6 @@ export default {
               "Jum'at",
               "Sabtu",
             ];
-            // var month = [
-            //   "Januari",
-            //   "Februari",
-            //   "Maret",
-            //   "April",
-            //   "Mei",
-            //   "Juni",
-            //   "Juli",
-            //   "Agustus",
-            //   "September",
-            //   "Oktober",
-            //   "November",
-            //   "Desember",
-            // ];
-      
             this.time =
               this.zeroPadding(cd.getHours(), 2) +
               ":" +
@@ -52,14 +45,7 @@ export default {
               this.zeroPadding(cd.getSeconds(), 2);
             this.date =
               week[cd.getDay()];
-            //   ", " +
-            //   this.zeroPadding(cd.getDate(), 2) +
-            //   " " +
-            //   this.zeroPadding(month[cd.getMonth()]) +
-            //   " " +
-            //   this.zeroPadding(cd.getFullYear(), 4) ;
-            
-        }, 1000)
+        }, 10)
     },
     zeroPadding(num, digit) {
       var zero = "";
@@ -69,7 +55,7 @@ export default {
       return (zero + num).slice(-digit);
     },
   },
-  created() {
+  async created() {
     var month = ['Muharram', 'Safar', 'Rabiul Awal', 'Rabiul Akhir', 'Jumadil Awal', 'Jumadil AKhir', 'Rajab', "Sya'ban", 'Ramadhan', 'Syawal', 'Dzulqaidah', 'Dzulhijjah' ];
           this.updateTime();
           axios.get(' https://api.aladhan.com/v1/gToH')
@@ -77,6 +63,7 @@ export default {
             this.tgl = response.data.data.hijri.day;
             this.bulan = month[response.data.data.hijri.month.number-1];
             this.tahun = response.data.data.hijri.year;
+            this.loading = false
           })
       
   }

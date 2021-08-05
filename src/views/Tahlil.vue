@@ -1,24 +1,24 @@
 <template>
   
   <Navbar v-bind:judul="judul" />
-  <DoaHarian></DoaHarian>
+  <Tahlil></Tahlil>
 </template>
 
 <script>
-import DoaHarian from '@/components/DoaHarian.vue'
-import Navbar from '@/components/Navbar.vue'
+import Tahlil from '@/components/Tahlil'
+import Navbar from '@/components/Navbar'
 export default {
     components: {
-      DoaHarian,
+      Tahlil,
       Navbar
     },
     data() {
       return {
-        judul: "Doa Harian"
+        judul: "Tahlil"
       }
     },
     mounted() {
-    document.title = "Doa Harian | masedo";
+    document.title = "Tahlil | masedo";
     
   },
 }
