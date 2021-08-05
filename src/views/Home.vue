@@ -5,37 +5,34 @@
         <Jam></Jam>
       </div>
       <div class="position-absolute bottom-0 mb-min p-2 w-100">
-        <JadwalSholat>
-          
-        </JadwalSholat>
+        <JadwalSholat> </JadwalSholat>
       </div>
       <img src="assets/masjid.png" alt="" class="w-100" />
     </div>
     <div class="row d-flex justify-content-around p-3 mt-4 text-white m-0">
       <div class="col p-2">
         <div class="edo-bg edo-rounded p-2">
-          <img src="assets/quran.png" class="w-100">
-            Al-Qur'an
+          <img src="assets/quran.png" class="w-100" />
+          Al-Qur'an
         </div>
-        <div>
+        <div></div>
+      </div>
+      <div class="col p-2">
+        <div class="edo-bg edo-rounded p-2">
+          <img src="assets/kitab.png" class="w-100" />
+          Hadits
         </div>
       </div>
       <div class="col p-2">
         <div class="edo-bg edo-rounded p-2">
-          <img src="assets/kitab.png" class="w-100">
-            Hadits
+          <img src="assets/zikir.png" class="w-100" />
+          Dzikir
         </div>
-
-      </div>
-      <div class="col p-2">
-        <div class="edo-bg edo-rounded p-2">
-          <img src="assets/zikir.png" class="w-100">
-            Dzikir
-        </div>
-
       </div>
 
-        <DoaHarian class="text-black mt-3"></DoaHarian>
+      <DoaHarianRand class="text-black mt-3">
+        
+      </DoaHarianRand>
     </div>
   </div>
   <div v-else class="d-flex justify-content-center align-items-center desktop">
@@ -44,27 +41,34 @@
 </template>
 
 <script>
-
-import DoaHarian from '@/components/DoaHarian.vue'
+import DoaHarianRand from "@/components/DoaHarianRand.vue";
 import JadwalSholat from "@/components/JadwalSholat.vue";
 import Jam from "@/components/Jam.vue";
 // @ is an alias to /src
 export default {
   name: "Index",
   components: {
-    DoaHarian,
+    DoaHarianRand,
     Jam,
     JadwalSholat,
   },
+  mounted() {
+    document.title = "Doa Harian | masedo";
+    
+  },
   methods: {
     isMobile() {
-   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-     return true
-   } else {
-     return false
-   }
- }
-  }
+      if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        )
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
 };
 </script>
 

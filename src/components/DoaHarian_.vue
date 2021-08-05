@@ -1,12 +1,12 @@
 <template>
   <div class="home p-3">
-    <input
+    <!-- <input
       type="text"
       v-model="search"
       class="form-control mb-3 p-3"
       placeholder="Ketik judul do'a..."
-    />
-    <div
+    /> -->
+    <!-- <div
       v-for="(item, index) in resultQuery"
       :key="item.id"
       class="p-3 rounded border mb-2"
@@ -31,8 +31,9 @@
           >"
         </p>
       </div>
-    </div>
+    </div> -->
   </div>
+  <h1>doa harian</h1>
 </template>
 
 <script>
