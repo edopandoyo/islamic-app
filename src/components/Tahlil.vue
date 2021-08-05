@@ -1,10 +1,10 @@
 <template>
   <div class="home p-3">
     <div v-for="item in tahlil" :key="item.id">
-      <div class="edo-rounded border p-3 mb-2">
+      <div class="edo-rounded border p-3 mb-2 text-start">
         <h5>{{ item.title }}</h5>
-        <div class="edo-rounded border p-2">
-          <p class="mb-0 arab">
+        <div class="edo-rounded border p-3">
+          <p class="mb-2 arab text-end">
             {{ item.arabic }}
           </p>
           <p class="font-italic">Artinya: "{{item.translation}}" </p>
@@ -57,9 +57,8 @@ li {
   margin-bottom: 1rem;
 }
 .arab {
-  font-size: 34px;
-  font-family: "Cairo", sans-serif;
-  font-family: "Lateef", cursive;
+  font-size: 24px;
+  font-family: 'Amiri', serif;
   color: green;
 }
 .font-italic {
