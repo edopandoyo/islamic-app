@@ -18,8 +18,10 @@
     <div class="row d-flex justify-content-around p-3 mt-4 text-white m-0">
       <div class="col p-2">
         <div class="edo-bg edo-rounded p-2">
+          <router-link to="/quran">
           <img src="assets/quran.png" class="w-100" />
           Al-Qur'an
+          </router-link>
         </div>
         <div></div>
       </div>

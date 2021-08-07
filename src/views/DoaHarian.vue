@@ -6,11 +6,11 @@
 
 <script>
 import DoaHarian from '@/components/DoaHarian.vue'
-import Navbar from '@/components/Navbar.vue'
+import Navbar from '@/components/Navbar.vue';
 export default {
     components: {
       DoaHarian,
-      Navbar
+      Navbar,
     },
     data() {
       return {

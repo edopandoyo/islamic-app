@@ -36,4 +36,9 @@ body {
 a {
   text-decoration: none;
 }
+@font-face {
+    font-family: 'fontQuran';
+    src: local("fontQuran"), url(/assets/font/Uthman.otf) format('opentype');
+    unicode-range:0600–06FF;
+}
 </style>

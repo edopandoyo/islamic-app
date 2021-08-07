@@ -50,14 +50,10 @@ export default {
       .get("https://islamic-api-zhirrr.vercel.app/api/doaharian")
       .then((response) => {
         this.doa = response.data.data;
-        this.random_doa= response.data.data[Math.floor((Math.random()*response.data.data.length))];
         });
 
   },
   methods: {
-    handleCopy() {
-      console.log(this.doa.arabic);
-    },
   },
   computed: {
     resultQuery: function() {

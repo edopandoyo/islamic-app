@@ -8,16 +8,25 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <router-link to="/" class="nav-link">
+          Home
+          </router-link>
+          <!-- <a class="nav-link" aria-current="page" href="/">Home</a> -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Al-Qur'an</a>
+          <router-link to="/quran" class="nav-link">
+          Al-Qur'an
+          </router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Hadits</a>
+          <router-link to="/hadits" class="nav-link">
+          Hadits
+          </router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Zikir</a>
+          <router-link to="/tahlil" class="nav-link">
+          Tahlil
+          </router-link>
         </li>
       </ul>
     </div>
