@@ -17,7 +17,8 @@ export default {
     };
   },
   created() {
-    axios.get("https://api.quran.sutanlab.id/surah/1").then((response) => {
+    //   const api_url = "https://api.quran.sutanlab.id/surah/"{{surah}}
+    axios.get("https://api.quran.sutanlab.id/surah/"+this.$route.params.surah).then((response) => {
       this.ayat = response.data.data.verses;
       console.log(response);
     });
